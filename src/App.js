@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import RecipeListContainer from './components/recipe/recipeList'
+import  { Container } from 'react-bootstrap';
 
-
-function App() {
+const App = (props) => {
   return (
-    <div className="App">
-     <RecipeListContainer />
-    </div>
+    <Container>
+     <RecipeListContainer {...props}/>
+    </Container>
   );
 }
 

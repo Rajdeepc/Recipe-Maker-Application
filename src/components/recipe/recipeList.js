@@ -1,7 +1,8 @@
 import React,{useEffect} from 'react';
 import { connect } from 'react-redux';
 import { getRecipeList } from './recipe.action';
-
+import RecipeItem from './recipeItem';
+import { Row,Col } from 'react-bootstrap';
 
 const RecipeList = (props) => {
 
@@ -12,9 +13,15 @@ const RecipeList = (props) => {
 
 
     return (
-        <div>
-            
-        </div>
+        <Row>
+            { props.searchRecipeReducerSate.recipeDataArray.map((item) => {
+                return (
+                    <Col sm={3}>
+                    <RecipeItem item={item.recipe} { ...props} /> 
+                    </Col>
+                )
+            })}
+        </Row>
     )
 }
 

@@ -14,10 +14,10 @@ const getRecipeList = (searchQuery) => dispatch => {
 
     axios.post(buildUrl)
     .then(res => {
-        if(res.length) {
+        if(res.data.hits.length) {
             dispatch({
                 type: GET_RECIPE_LIST,
-                payload: res.hits
+                payload: res.data.hits
             })
         } else {
             dispatch({
@@ -26,7 +26,7 @@ const getRecipeList = (searchQuery) => dispatch => {
             })
         }
     }).catch(err => {
-        throw new err
+        console.log(err)
     })
 }
 
